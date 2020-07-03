@@ -112,5 +112,3 @@ function retry() {
 //         return false;
 //     }
 // }
-?>
-ああああああああああああ
