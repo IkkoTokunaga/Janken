@@ -36,7 +36,6 @@ function main()
     $judge  = judge($myHand, $pcHand);
     result($judge);
     if ($judge === DRAW) {
-    //再帰関数の条件式を変更しました
         return main();
     }
     $retry = retry();
@@ -85,30 +84,24 @@ function retry() {
     echo "もう一度やりますか？" . PHP_EOL . "RETRY=>1" . PHP_EOL . "QUIT =>2" . PHP_EOL;
 
     $retry = (int)trim(fgets(STDIN));
-    // $check = check($retry);
-    // if ($check === false) {
-    //     echo "【1 or 2 を選択して下さい】" . PHP_EOL;
-    //     return retry();
-    // }
-    if ($retry === RETRY) {
-        return RETRY;
-    } 
-    if ($retry === QUIT) {
-        return QUIT;
-    }  
-    echo "【1 or 2 を選択して下さい】" . PHP_EOL;
-    return retry();
+    $check = check($retry);
+    if ($check === false) {
+        echo "【1 or 2 を選択して下さい】" . PHP_EOL;
+        return retry();
+    }
+    
+        return $retry;
 }
 
-// function check($retry) {
-// //定数を使って流れがわかるように書き換えました
-//     if ($retry === RETRY) {
-//         return true;
-//     }
-//     elseif ($retry === QUIT) {
-//         return true;
-//     }
-//     else {
-//         return false;
-//     }
-// }
+function check($retry) {
+//定数を使って流れがわかるように書き換えました
+    if ($retry === RETRY) {
+        return true;
+    }
+    elseif ($retry === QUIT) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
