@@ -13,3 +13,5 @@ while ($input_line = trim(fgets(STDIN))) {
     $arr[] = $input_line;
     }
 //標準入力を全ての行取得
+
+?>
